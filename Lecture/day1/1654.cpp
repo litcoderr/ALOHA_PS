@@ -12,18 +12,18 @@ long long PS(long long left, long long right){
         for(int i=0;i<have;i++){
             temp += len[i] / mid;
         }
-        if(temp==need){
-            answer = mid;
-            return PS(mid+1,INT_MAX);
-        }
+
         if(temp<need){
             return PS(left,mid-1);
-        }else if(temp>need){
+        }else if(temp>=need){
+            if(answer<mid){
+                answer = mid;
+            }
             return PS(mid+1,right);
         }
     }
 
-    return 0;
+    return answer;
 }
 
 int main(){
@@ -34,8 +34,8 @@ int main(){
         scanf("%lld",&len[i]);
     }
 
-    long long isdone = PS(1,INT_MAX);
-    printf("%lld",answer);
+    long long final_answer = PS(1,INT_MAX);
+    printf("%lld",final_answer);
 
     return 0;
 }
