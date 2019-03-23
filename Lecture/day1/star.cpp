@@ -2,6 +2,12 @@
 
 using namespace std;
 
+void somefunction(){
+    for(int i=0;i<10;i++){
+        printf("Hello world");
+    }
+}
+
 int main(){
     int n = 0;
     scanf("%d",&n);
